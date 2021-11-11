@@ -61,6 +61,10 @@ namespace KnockOutlook.Operations
 				{
 					ExceptionMessage = "Outlook is not installed on the system";
 				}
+				else if (exception.HResult == -2079195127)
+				{
+					ExceptionMessage = "Outlook is not connected";
+				}
 				else if (exception.HResult == -2147467260)
 				{
 					ExceptionMessage = "Operation aborted by the user";

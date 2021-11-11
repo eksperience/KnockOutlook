@@ -1,6 +1,7 @@
-﻿using CommandLine;
+using CommandLine;
 using System;
 using System.Security.Principal;
+using System.Text;
 
 namespace KnockOutlook
 {
@@ -96,7 +97,12 @@ namespace KnockOutlook
 
 		static void Main(string[] args)
 		{
-			Console.OutputEncoding = System.Text.Encoding.UTF8;
+			try
+			{
+				Console.OutputEncoding = Encoding.UTF8;
+			}
+			catch {}
+
 			new Parser(config => config.HelpWriter = null).ParseArguments<Options>(args).WithParsed(options => ProcessArguments(options)).WithNotParsed(errors => ShowHelp());
 		}
 	}
